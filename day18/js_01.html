@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>calculator</title>
+</head>
+<body>
+    <input id="first-number" type="number" value="0" placeholder="第一个数字">
+    <input id="second-number" type="number" value="0" placeholder="第二个数字">
+    <button id="add-btn">加</button>
+    <button id="minus-btn">减</button>
+    <button id="times-btn">乘</button>
+    <button id="divide-btn">除</button>
+    <p id="result">运算结果</p>
+    <script>
+        var firNum = document.getElementById('first-number');
+        var secNum = document.getElementById('second-number');
+        var resultNum = document.getElementById('result');
+
+        // 计算函数
+
+        function toCalculate(type){
+            var result = 0;
+            var firstVal = Number(firNum.value);
+            var secondVal = Number(secNum.value);
+            switch(type){
+                case 'add':
+                result = firstVal + secondVal;
+                break;
+
+                case 'minus':
+                result = firstVal - secondVal;
+                break;
+
+                case 'times':
+                result = firstVal * secondVal;
+                break;
+
+                case 'divide':
+                result = firstVal / secondVal;
+                break;
+
+                default:
+                return 'false';
+            }
+            resultNum.innerHTML = result;
+            return result;
+        }
+
+        // 添加事件
+
+        function eventCal (btn,type){
+            var btn = document.getElementById(btn);
+
+            switch (type){
+                case 'add':
+                btn.addEventListener('click',function(){
+                    toCalculate(type);
+                },false);
+            break;
+                case 'minus':
+                btn.addEventListener('click',function(){
+                    toCalculate(type);
+                },false);
+                break;
+                 case 'times':
+                btn.addEventListener('click',function(){
+                    toCalculate(type);
+                },false);
+                break;
+                 case 'divide':
+                btn.addEventListener('click',function(){
+                    toCalculate(type);
+                },false);
+                break;
+            }
+            }
+
+            eventCal('add-btn','add');
+            eventCal('add-btn','add');
+            eventCal('add-btn','add');
+            eventCal('add-btn','add');
+    </script>
+</body>
+</html>
